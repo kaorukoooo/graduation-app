@@ -205,3 +205,6 @@ RUNTEQカリキュラムで学んだRailsをベースに実装することで、
 ### 10-3. キャッチアップ不足の懸念
 
 MVPはRailsのみで構築し、グラフ表示はChartkickなど既存のgemを活用して実装コストを下げる。ReactやNext.jsへの移行は本リリース後に検討する。
+
+## 画面遷移図
+Figma：https://www.figma.com/design/NovCIrWQWb3HQuy4YVe4PJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C-kaorukoooo-?node-id=0-1&m=dev&t=Clu967c1Hz5FwYaW-1
