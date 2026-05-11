@@ -213,3 +213,6 @@ MVPはRailsのみで構築し、グラフ表示はChartkickなど既存のgemを
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/NovCIrWQWb3HQuy4YVe4PJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C-kaorukoooo-?node-id=0-1&m=dev&t=Clu967c1Hz5FwYaW-1
+
+### ER図
+https://gyazo.com/db5439bef2a3d48beb1fabd4839ee597
