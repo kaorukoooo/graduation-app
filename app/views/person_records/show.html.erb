@@ -1,0 +1,17 @@
+<h1><%= @person_record.nickname %></h1>
+<p>出会った日：<%= @person_record.met_on %></p>
+<p>良かった点：<%= @person_record.good_points %></p>
+<p>気になった点：<%= @person_record.concerns %></p>
+
+<% if @person_record.tags.any? %>
+  <p>タグ：
+    <% @person_record.tags.each do |tag| %>
+      <span><%= tag.name %></span>
+    <% end %>
+  </p>
+<% else %>
+  <p>タグなし</p>
+<% end %>
+
+<%= link_to "編集", edit_person_record_path(@person_record) %>
+<%= link_to "一覧に戻る", person_records_path %>

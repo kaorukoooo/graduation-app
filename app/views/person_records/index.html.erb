@@ -1,0 +1,14 @@
+<h1>婚活記録一覧</h1>
+<%= link_to "新しく記録する", new_person_record_path %>
+
+<% @person_records.each do |record| %>
+  <div>
+    <h2><%= record.nickname %></h2>
+    <p>出会った日：<%= record.met_on %></p>
+    <p>良かった点：<%= record.good_points %></p>
+    <p>気になった点：<%= record.concerns %></p>
+    <%= link_to "詳細", person_record_path(record) %>
+    <%= link_to "編集", edit_person_record_path(record) %>
+    <%= link_to "削除", person_record_path(record), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+  </div>
+<% end %>

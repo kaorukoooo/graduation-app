@@ -1,0 +1,41 @@
+<h1>タグ一覧・設定</h1>
+
+<h2>自由タグを作成する</h2>
+<%= form_with model: Tag.new, url: tags_path do |f| %>
+  <div>
+    <%= f.label :name, "タグ名" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :tag_type, "カテゴリ" %>
+    <%= f.select :tag_type, ["外見", "性格", "生活習慣", "価値観"] %>
+  </div>
+  <div>
+    <%= f.label :sentiment, "ポジティブ／ネガティブ" %>
+    <%= f.select :sentiment, [["ポジティブ", "positive"], ["ネガティブ", "negative"]] %>
+  </div>
+  <%= f.submit "作成する" %>
+<% end %>
+
+<h2>マイタグ</h2>
+<% if @my_tags.empty? %>
+  <p>まだ自由タグがありません</p>
+<% else %>
+  <% @my_tags.group_by(&:tag_type).each do |tag_type, tags| %>
+    <h3><%= tag_type %></h3>
+    <% tags.each do |tag| %>
+      <span><%= tag.name %>（<%= tag.sentiment == "positive" ? "ポジティブ" : "ネガティブ" %>）</span>
+      <%= link_to "削除", tag_path(tag), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h2>プリセットタグ</h2>
+<% @preset_tags.group_by(&:tag_type).each do |tag_type, tags| %>
+  <h3><%= tag_type %></h3>
+  <% tags.each do |tag| %>
+    <span><%= tag.name %>（<%= tag.sentiment == "positive" ? "ポジティブ" : "ネガティブ" %>）</span>
+  <% end %>
+<% end %>
+
+<%= link_to "一覧に戻る", person_records_path %>

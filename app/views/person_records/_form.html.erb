@@ -1,0 +1,44 @@
+<%= form_with model: person_record do |f| %>
+  <% if person_record.errors.any? %>
+    <div>
+      <% person_record.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :nickname, "ニックネーム" %>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div>
+    <%= f.label :met_on, "出会った日" %>
+    <%= f.date_field :met_on %>
+  </div>
+
+  <div>
+    <%= f.label :good_points, "良かった点" %>
+    <%= f.text_area :good_points %>
+  </div>
+
+  <div>
+    <%= f.label :concerns, "気になった点" %>
+    <%= f.text_area :concerns %>
+  </div>
+
+  <div>
+    <p>タグを選ぶ</p>
+    <% (@preset_tags + @my_tags).group_by(&:tag_type).each do |tag_type, tags| %>
+      <h4><%= tag_type %></h4>
+      <% tags.each do |tag| %>
+        <label>
+          <%= f.check_box :tag_ids, { multiple: true, checked: person_record.tags.include?(tag) }, tag.id, false %>
+          <%= tag.name %>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.submit "保存する" %>
+<% end %>
