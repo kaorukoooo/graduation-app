@@ -1,0 +1,20 @@
+databases:
+  - name: konkatsu_kiroku
+    databaseName: konkatsu_kiroku
+    user: konkatsu_kiroku
+
+services:
+  - type: web
+    name: konkatsu_kiroku
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: konkatsu_kiroku
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
