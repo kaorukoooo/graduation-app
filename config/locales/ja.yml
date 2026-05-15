@@ -185,9 +185,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-
-  errors:
-    messages:
-      not_saved:
-        one: "エラーが1件あるため保存できませんでした："
-        other: "%{count}件のエラーがあるため保存できませんでした："
+    
