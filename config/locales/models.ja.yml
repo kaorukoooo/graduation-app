@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      person_record: 婚活記録
+      tag: タグ
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      person_record:
+        nickname: ニックネーム
+        met_on: 出会った日
+        good_points: 良かった点
+        concerns: 気になった点
